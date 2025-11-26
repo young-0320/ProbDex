@@ -14,22 +14,44 @@
 
 
 폴더 구조
+```
 
-my-first-project/
-├── .venv/                  			      # (가상 환경)
-├── assets/                 			      # (데이터 폴더)
-├── src/                    			      # (소스 코드 폴더)
-├── test_input_problem/		               # (input_pdf_problems에 업로드할 테스트 문제 )
-├── user_input/input_pdf_problems         # (사용자는 input_pdf_problems에 분석을 원하는 파일을 업로드)
-├── .env                     			      # <-- ⭐ 여기에 API 키 저장
-├── poetry.lock
-├── poetry.toml
-├── probdex.db                            # (원형 기출 문제 저장 db)
-├── pyproject.toml          		         # (Poetry 설정 파일)
-├── README.md
-└── user_probdex.db			               # (사용자의 문제가 저장되는 db)
-
-
+ProbDex_Project/
+├── .pytest_cache                       # pytest 실행 시 생성되는 캐시 디렉토리 (테스트 속도 향상)
+├── .venv                               # [Poetry] 가상 환경 디렉토리 (프로젝트 전용 라이브러리 설치 공간)
+├── assets/                             # 시스템 데이터 저장소 (기출 PDF, DB, 이미지 리소스 등)
+│   ├── problem_images/                 # PDF에서 페이지/문항별로 추출된 이미지 파일 저장소
+│   ├── processed_pdfs/                 # 원본 PDF를 공통/선택 과목 등으로 분할 처리한 파일 저장소
+│   ├── raw_problem_pdfs/               # 평가원 원본 기출 문제 PDF 파일 저장소
+│   ├── base_problems.json              # 추출된 문제 메타데이터 및 AI 분석 결과 (JSON 포맷)
+│   └── base_problems.xlsx              # 추출된 문제 메타데이터 및 AI 분석 결과 (Excel 포맷)
+├── src/
+│   └── my_first_project/               # 소스 코드 메인 패키지
+│       ├── __init__.py                 # 파이썬 패키지 초기화 파일
+│       ├── main.py                     # [Entry Point] 프로그램 실행 진입점 (CLI/GUI 모드 분기)
+│       ├── config.py                   # 프로젝트 전역 경로, 상수, 파일명 설정 관리
+│       ├── model.py                    # Pydantic 기반 데이터 모델 정의 및 유효성 검사
+│       ├── engine.py                   # Gemini AI API 연동 및 프롬프트 제어 엔진 (V1)
+│       ├── database.py                 # SQLite DB 스키마 생성, 연결, 기본 쿼리 함수 모음
+│       ├── prob_data_processer.py      # 데이터 정제, 포맷 변환(Excel↔JSON), 텍스트 전처리 로직
+│       ├── utility_pdf.py              # PDF 페이지 분할, 이미지 변환 등 유틸리티 함수
+│       ├── similarity.py               # 기초 유사도 계산 알고리즘 (자카드, 텍스트 매칭)
+│       ├── similarity_v2.py            # 고급 유사도 알고리즘 (TF-IDF, 코사인 유사도 적용)
+│       ├── probdex_pipeline.py         # 시스템 데이터 구축 및 전체 ETL 파이프라인 관리
+│       ├── user_pipeline.py            # 사용자 검색 서비스 실행 파이프라인 (초기 버전)
+│       ├── user_pipeline_v2.py         # 사용자 검색 서비스 파이프라인 (개선된 로직 적용)
+│       ├── user_pipeline_v3.py         # 사용자 검색 서비스 파이프라인 (최신 검색 로직 적용)
+│       ├── gui_manager.py              # Tkinter 기반 GUI 인터페이스 컨트롤러 (V1)
+│       └── gui_manager_v2.py           # 개선된 GUI 컨트롤러 (이미지 캐러셀, 상세 정보 표시 등)
+├── user_input/                         # 사용자 데이터 관련 디렉토리
+│   └── input_pdf_problems/             # 사용자가 검색을 위해 업로드하는 PDF 파일 저장소
+├── .env                                # API Key(GEMINI_API_KEY) 보안 환경 변수 파일
+├── poetry.lock                         # [Poetry] 의존성 패키지 버전 잠금 파일 (환경 재현성 보장)
+├── pyproject.toml                      # [Poetry] 프로젝트 설정 및 의존성 명세 파일
+├── probdex.db                          # [System DB] 마스터 데이터베이스 (기출 문제 원본 데이터)
+├── README.md                           # 프로젝트 설명 및 실행 가이드 문서
+└── user_probdex.db                     # [User DB] 사용자 검색 기록 및 분석 데이터 저장용 데이터베이스
+```
 
 실행 구문
 
