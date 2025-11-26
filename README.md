@@ -14,7 +14,7 @@
 
 
 폴더 구조
-'''
+'''text
 my-first-project/
 ├── .venv/                  			      # (가상 환경)
 ├── assets/                 			      # (데이터 폴더)
