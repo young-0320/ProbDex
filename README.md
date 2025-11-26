@@ -14,7 +14,7 @@
 
 
 폴더 구조
-'''text
+
 my-first-project/
 ├── .venv/                  			      # (가상 환경)
 ├── assets/                 			      # (데이터 폴더)
@@ -24,11 +24,11 @@ my-first-project/
 ├── .env                     			      # <-- ⭐ 여기에 API 키 저장
 ├── poetry.lock
 ├── poetry.toml
-├── probdex.db                                    # (원형 기출 문제 저장 db)
-├── pyproject.toml          		       # (Poetry 설정 파일)
+├── probdex.db                            # (원형 기출 문제 저장 db)
+├── pyproject.toml          		         # (Poetry 설정 파일)
 ├── README.md
-└── user_probdex.db			      # (사용자의 문제가 저장되는 db)
-'''
+└── user_probdex.db			               # (사용자의 문제가 저장되는 db)
+
 
 
 실행 구문
