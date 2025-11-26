@@ -14,7 +14,7 @@
 
 
 폴더 구조
-
+'''
 my-first-project/
 ├── .venv/                  			      # (가상 환경)
 ├── assets/                 			      # (데이터 폴더)
@@ -28,7 +28,7 @@ my-first-project/
 ├── pyproject.toml          		       # (Poetry 설정 파일)
 ├── README.md
 └── user_probdex.db			      # (사용자의 문제가 저장되는 db)
-
+'''
 
 
 실행 구문
