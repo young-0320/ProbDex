@@ -3,7 +3,7 @@
 이 프로젝트를 실행하려면 **Google Gemini API 키**가 필요합니다.
 
 1. **Google AI Studio에서 API 키를 발급**받으십시오.
-2. `.env` 파일 안에 다음과 같이 자신의 API 키를 입력하십시오.
+2. `.env` 이름의 파일을 최상위 폴더(my-first-project)에 생성하고 다음과 같이 자신의 API 키를 입력하십시오.
    ```
    GEMINI_API_KEY='여기에_발급받은_API_키를_입력하십시오'
    ```
