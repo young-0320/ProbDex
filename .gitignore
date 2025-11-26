@@ -1,0 +1,16 @@
+# --- 사용자님 커스텀 설정 (맨 아래에 추가) ---
+# 1. 보안
+.env
+
+# 2. 가상환경
+.venv/
+
+# 3. 데이터 폴더
+assets/processed_pdfs/
+assets/problem_images/
+user_input/
+test_input_problem/
+
+# 4. OS 파일
+.DS_Store
+Thumbs.db
